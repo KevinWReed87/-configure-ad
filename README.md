@@ -2,13 +2,7 @@
 <img src="https://i.imgur.com/pU5A58S.png" alt="Microsoft Active Directory Logo"/>
 </p>
 
-<h1>On-premises Active Directory Deployed in the Cloud (Azure)</h1>
-This tutorial outlines the implementation of on-premises Active Directory within Azure Virtual Machines.<br />
 
-
-<h2>Video Demonstration</h2>
-
-- ### [YouTube: How to Deploy on-premises Active Directory within Azure Compute](https://www.youtube.com)
 
 <h2>Environments and Technologies Used</h2>
 
@@ -24,33 +18,130 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 <h2>High-Level Deployment and Configuration Steps</h2>
 
-- Step 1
-- Step 2
-- Step 3
-- Step 4
+ Create a Domain controller (DC-1) running Windows Server22 and a Virtual Machine (Client-1) running Windows 10 inside if Microsoft Azure.
+ 
+ Login to DC-1 and install Active Directory Domain Services.
+
+ Join Client-1 to the created domain. (mydomain.com)
+
+ Open Powershell_ISE as an administrator. Create a new file and paste the contents of the employee name population script into it. Create a buncn of additional users   and attempt to login to Client-1 as one of the users.
+ 
+ Sharing out resources over the network by creating sample file shares with various permissions.
+
+Set the following permissions (share the folder) for the “Domain Users” group:
+
+Folder: “read-access”, Group: “Domain Users”, Permission: “Read”
+
+Folder: “write-access”, Group: “Domain Users”, Permission: “Read/Write”
+
+Folder: “no-access”, Group: “Domain Admins”, “Permission: “Read/Write
+
+Normal domain users are granted permission to only read from the "read-access" group, read and write in the "write-acces" group, and not access the "no-access" group at all. Admin only are allowed permission to access the "no access" group.
 
 <h2>Deployment and Configuration Steps</h2>
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/HBDt4Md.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Created a domain controller named DC-1 and a virtual Machine named Client-1 inside of a Micrsoft Azure resource group.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/yN3fIDd.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+ Install Active Directory Domain Services on Domain Controller DC-1.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/rhP1rSn.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Join Client-1 to the created domain name for the domain controller DC-1. (mydomain.com)
+</p>
+<br />
+
+ 
+<p>
+<img src="https://i.imgur.com/tNFMxRP.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Open Powershell_ISE as an administrator.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/4SHVgrG.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Create a new file and paste the contents of the employee name population script into it. Create a buncn of additional users. 
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/rb4ieTw.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/EQXNfOj.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+ Attempt to login to Client-1 as one of the users. In this case, the user name chosen from the random list generated in Powershell_ISE in the previous section was Falojo.Kugori.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/HRc9yfM.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+ On DC-1 (domain controller), on the C:\ drive, create 3 folders: “read-access”, “write-access”, “no-access”,
+ 
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/yy6bmz8.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+ Set the following permissions (share the folder) for the “Domain Users” group: Folder:
+
+“read-access”, Group: “Domain Users”, Permission: “Read”
+
+Normal domain users are granted permission to only read from the "read-access" group.
+ 
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/KqbRUVr.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+ Set the following permissions (share the folder) for the “Domain Users” group: Folder:
+
+Folder: “write-access”, Group: “Domain Users”, Permissions: “Read/Write”
+
+Normal domain users are granted permission to read and write in the "write-acces" group.
+ 
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/vamyV36.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Set the following permissions (share the folder) for the “Domain Users” group:
+
+Folder: “no-access”, Group: “Domain Admins”, “Permissions: “Read/Write
+
+Normal domain users are not granted permission to access the "no-access" group at all.
+
+Only Domain Admin are allowed permission to access the "no access" group. 
 </p>
 <br />
